@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+@layer primevue {
+    .p-chip-label {
+        font-size: 12px;
+    }
+
+
+    // Checkbox
+    .p-checkbox-input {
+        display: none;
+    }
+
+    .p-checkbox-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 14px;
+        width: 14px;
+        background-color: transparent;
+        border-radius: 1.6px;
+        box-sizing: border-box;
+        border: 1px solid $gray-400;
+
+        .p-checkbox-icon {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    .p-checkbox-checked .p-checkbox-box {
+        background-color: $primary-600;
+        border-color: $primary-600;
+
+        .p-checkbox-icon {
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@layer Primevue {
+    .p-tree {
+
+    }
+
+    .p-tree-root-children,
+    .p-tree-node-children {
+        list-style-type: none;
+        gap: 2px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .p-tree-node-children {
+        margin-left: 28px;
+    }
+
+    .p-tree-node {
+        margin: 0;
+    }
+
+    .p-tree-node-content {
+        display: flex;
+        align-items: center;
+        outline-color: transparent;
+        cursor: pointer;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        padding: 2px 0;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+    }
+
+    .p-tree-node-toggle-button {
+        border: none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+        margin-top: 2px;
+    }
+
+    .p-tree-node-label {
+        font-weight: normal;
+        margin-left: 12px;
+    }
+
+    .p-checkbox-box {
+        margin-left: 6px;
+    }
+
+    .p-tree-node-root > .p-tree-node-label {
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,327 @@
+.vfb-tabs-container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.vfb-tabs-container-sm {
+    margin-bottom: var(--form-mb-gutter);
+    font-size: var(--form-text-sm);
+}
+
+.vfb-tabs-container-md {
+    margin-bottom: var(--form-mb-gutter-lg);
+    font-size: var(--form-text);
+}
+
+.vfb-tabs-container-lg {
+    margin-bottom: var(--form-mb-gutter-lg);
+    font-size: var(--form-text-lg);
+}
+
+.vfb-tabs-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-top: 3rem;
+    margin-top: -3rem;
+}
+
+.vfb-tabs-remove-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: -1rem;
+    top: 0.625rem;
+}
+
+.vfb-tabs-remove-button {
+    color: rgba(156, 163, 175, 1);
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        color: rgba(107, 114, 128, 1);
+    }
+}
+
+.vfb-tabs-add-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: -1rem;
+    top: 0.625rem;
+}
+
+.vfb-tabs-add-button {
+    color: rgba(156, 163, 175, 1);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        color: rgba(107, 114, 128, 1);
+    }
+}
+
+.vfb-tab-container {
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(59, 130, 246, 0);
+    border: 1px solid rgba(59, 130, 246, 1);
+
+    &.vfb-tab-container-hover {
+
+        .vfb-tab-actions-container {
+            display: flex;
+            opacity: 1;
+        }
+    }
+}
+
+.vfb-tab-container-editor {
+    &:hover,
+    &:focus,
+    &.vfb-tab-container-moving {
+        outline: none;
+
+        .vfb-tab-actions-container {
+            display: flex;
+            opacity: 1;
+        }
+    }
+
+    &.vfb-tab-container-selected {
+        background-color: rgba(59, 130, 246, 0.1);
+
+        .vfb-tab-actions-container {
+            display: flex;
+            opacity: 1;
+        }
+    }
+
+    &.vfb-tab-container-moving {
+        border: transparent;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px dashed rgba(59, 130, 246, 1);
+        }
+    }
+}
+
+.vfb-tab-container-drop-left {
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0.125rem;
+        background-color: rgba(59, 130, 246, 1);
+        border-radius: 9999px;
+    }
+}
+
+.vfb-tab-container-drop-right {
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 0.125rem;
+        background-color: rgba(59, 130, 246, 1);
+        border-radius: 9999px;
+    }
+}
+
+.vfb-tab-container-drop-middle {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 0.375rem;
+}
+
+.vfb-tab-container-conditional {
+    color: rgba(156, 163, 175, 1);
+}
+
+.vfb-tab-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(59, 130, 246, 1);
+    transition: all 0.15s ease;
+    border-radius: 0.375rem;
+}
+
+.vfb-tab-overlay-drag-over {
+    z-index: 1;
+}
+
+.vfb-tab-overlay-highlighted {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.vfb-tab-overlay-not-highlighted {
+    background-color: rgba(59, 130, 246, 0);
+}
+
+.vfb-tab-area-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+}
+
+.vfb-tab-area-left-drag-over {
+    z-index: 1;
+}
+
+.vfb-tab-area-left-drag-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.125rem;
+    background-color: rgba(59, 130, 246, 1);
+    margin-left: -0.0625rem;
+    pointer-events: none;
+    border-radius: 9999px;
+}
+
+.vfb-tab-area-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+.vfb-tab-area-right-drag-over {
+    z-index: 1;
+}
+
+.vfb-tab-area-right-drag-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.125rem;
+    background-color: rgba(59, 130, 246, 1);
+    margin-right: -0.0625rem;
+    pointer-events: none;
+    border-radius: 9999px;
+}
+
+.vfb-tab-wrapper {
+    display: block;
+    border-bottom: 2px solid rgba(59, 130, 246, 1);
+    position: relative;
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+.vfb-tab-wrapper-dragged {
+    opacity: 0.2;
+}
+
+.vfb-tab-wrapper-active {
+    border-color: rgba(59, 130, 246, 1);
+}
+
+.vfb-tab-wrapper-inactive {
+    border-color: transparent;
+}
+
+.vfb-tab-wrapper-invalid {
+    color: rgba(239, 68, 68, 1);
+    border-color: rgba(239, 68, 68, 1);
+}
+
+.vfb-tab-wrapper-sm {
+    padding: 0.375rem 0.875rem;
+}
+
+.vfb-tab-wrapper-md {
+    padding: 0.5rem 1rem;
+}
+
+.vfb-tab-wrapper-lg {
+    padding: 0.5rem 1rem;
+}
+
+.vfb-tab-edit-label-wrapper {
+    display: inline-block;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 100%;
+}
+
+.vfb-tab-edit-label-input {
+    position: absolute;
+    inset: 0;
+    border: none;
+    appearance: none;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.vfb-tab-edit-label-sizer {
+    visibility: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    height: 0.0625rem;
+    position: relative;
+    top: -0.0625rem;
+}
+
+.vfb-tab-actions-container {
+    position: absolute;
+    transform: translate(0);
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.vfb-tab-actions-container-left {
+    top: 0;
+    left: -0.0625rem;
+    transform: translateY(-100%);
+    flex-direction: row;
+}
+
+.vfb-tab-actions-container-right {
+    top: 0;
+    right: -0.0625rem;
+    transform: translateY(-100%);
+    flex-direction: row;
+}
+
+.vfb-tab-action {
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(59, 130, 246, 1);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    position: relative;
+}
+
+.vfb-tab-action:hover {
+    background-color: rgba(59, 130, 246, 0.8);
+}

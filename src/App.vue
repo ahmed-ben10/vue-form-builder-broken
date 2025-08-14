@@ -1,15 +1,18 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup>
+import { ref, onMounted } from 'vue'
 
-export default defineComponent({
-  name: 'App',
-});
+const builder$ = ref()
+
+onMounted(() => {
+  console.log(builder$.value)
+})
 </script>
 
 <template>
-  <div>
-    <RouterView class="router-view" data-testid="router-view" />
+  <div id="app" class="h-screen">
+    <VueformBuilder ref="builder$" />
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style>
+</style>

@@ -1,0 +1,210 @@
+@layer primevue {
+    .p-datatable {
+        position: relative;
+        border: 1px solid $gray-300;
+        border-radius: 4px;
+    }
+
+    .p-datatable-header {
+        height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: solid $gray-300;
+        border-width: 0 0 1px 0;
+        padding: 0 24px;
+        background: #ffffff;
+        color: #334155;
+        font-weight: 600;
+
+        @include tablet() {
+            justify-content: end;
+        }
+
+        .draggable-columns {
+            .button {
+                padding: 9px 10px;
+            }
+        }
+    }
+
+    .p-datatable-table-container {
+        overflow: auto !important;
+        min-height: 454px;
+    }
+
+    .p-datatable-table {
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    .p-datatable-thead th {
+    }
+
+    .p-datatable-header-cell {
+        border: solid $gray-300;
+        border-width: 0 0 1px 0;
+        text-overflow: ellipsis;
+        -webkit-user-select: none;
+        user-select: none;
+        text-align: start;
+        position: relative;
+        font-size: $font-size-small;
+
+        &:last-child .p-datatable-column-resizer {
+            display: none;
+        }
+
+        .sortable {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 0 6px;
+
+            &:not(.asc):hover,
+            &:not(.desc):hover {
+                visibility: visible;
+            }
+
+            .asc,
+            .desc {
+                width: 12px;
+                height: 12px;
+                display: none;
+            }
+
+            &.asc .asc,
+            &.desc .desc,
+            &.asc:hover .desc,
+            &.desc:hover .asc {
+                display: inline-block;
+            }
+
+            &.asc:hover .asc,
+            &.desc:hover .desc {
+                display: none;
+            }
+        }
+    }
+
+
+    .p-datatable-resizable-column:hover .p-datatable-column-resizer {
+        opacity: 1;
+    }
+
+    .p-datatable th {
+        position: relative;
+        user-select: none;
+    }
+
+    .p-datatable-column-resizer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: col-resize;
+        opacity: 0;
+        user-select: none;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 55%;
+            background: $gray-300;
+        }
+    }
+
+    .p-datatable-column-resize-indicator {
+        border: solid transparent;
+        position: absolute;
+        cursor: col-resize;
+        transform: translateX(-10px);
+        padding: 0 8px;
+
+        &:after {
+            content: '';
+            width: 1px;
+            display: block;
+            height: 100%;
+            background: $primary-400;
+        }
+    }
+
+    .p-datatable-tbody tr {
+        height: 69px;
+
+        &[aria-selected=true] {
+            background: $primary-50;
+
+            &:hover {
+                background: $primary-100;
+                border: 1px solid $gray-300;
+            }
+        }
+
+        &:hover {
+            background: $primary-50;
+            border: 1px solid $gray-300;
+        }
+
+        td {
+            white-space: break-spaces;
+            padding: 10px 6px;
+            border: solid $gray-300;
+            border-width: 0 0 1px 0;
+            overflow: visible;
+
+            &:first-child {
+                padding: 12px 24px;
+            }
+
+            .rowOptions {
+                visibility: hidden;
+
+                &.show {
+                    visibility: visible;
+                }
+            }
+
+            .checkbox-select {
+                padding-right: 20px;
+            }
+        }
+
+        // empty table
+        &.p-datatable-empty-message {
+            &:hover {
+                background: transparent;
+            }
+
+            td {
+                &:first-child {
+                    border-left: 3px solid transparent;
+                }
+            }
+        }
+    }
+
+    .p-datatable-mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .p-datatable-footer {
+        height: 48px;
+        padding: 0 24px;
+        border: solid $gray-300;
+        border-width: 1px 0 0 0;
+
+    }
+}

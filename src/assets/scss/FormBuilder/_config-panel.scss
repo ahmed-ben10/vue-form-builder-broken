@@ -1,0 +1,318 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.vfb-config-panel-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 0 16px 24px 16px;
+    background: #ffffff;
+    transition: all 150ms;
+    transform: translateX(0);
+}
+
+.vfb-config-panel-container-hidden {
+    transform: translateX(100%);
+
+    &.vfb-config-panel-container-left {
+        transform: translateX(-100%);
+    }
+}
+
+.vfb-config-panel-header-container {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.vfb-config-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.vfb-config-panel-header-wrapper-left,
+.vfb-config-panel-header-wrapper-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vfb-config-panel-header-close:hover {
+    color: #1f2937;
+}
+
+.vfb-config-panel-header-close-icon {
+    color: $gray-800;
+}
+
+.vfb-config-panel-header-label-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 2rem;
+}
+
+.vfb-config-panel-header-label {
+    @include text-button;
+}
+
+.vfb-config-panel-header-description {
+    color: #6b7280;
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.vfb-config-panel-header-label-wrapper.has-subtitle .vfb-config-panel-header-label {
+    font-size: 1.125rem;
+    line-height: 1;
+}
+
+.vfb-config-panel-header-warning {
+    color: #ef4444;
+    font-size: 12px;
+    margin-left: 0.375rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.vfb-config-panel-header-save,
+.vfb-config-panel-header-clone,
+.vfb-config-panel-header-remove,
+.vfb-config-panel-header-collapse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $gray-600;
+    transition: color 0.2s;
+    cursor: pointer;
+
+    svg {
+        height: 14px;
+        width: 14px;
+    }
+}
+
+.vfb-config-panel-header-save:hover,
+.vfb-config-panel-header-clone:hover,
+.vfb-config-panel-header-remove:hover,
+.vfb-config-panel-header-collapse:hover {
+    color: #4b5563;
+}
+
+.vfb-config-panel-header-clone {
+    font-size: 0.875rem;
+}
+
+.vfb-config-panel-header-collapse-icon-open {
+
+}
+
+.vfb-config-panel-header-collapse-icon-close {
+    width: 16px;
+    height: 15px;
+
+}
+
+.vfb-config-toggle + .vfb-config-toggle:not(.vfb-util-props-separator-top) {
+    margin-top: -0.5rem;
+}
+
+.vfb-config-form-header {
+    @include text-bold;
+    height: 48px;
+    background: $gray-50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-top: -1px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border: solid $gray-300;
+    border-width: 1px 0 1px 0;
+    color: $gray-900;
+}
+
+.vfb-config-form-header-non-collapsible {
+    cursor: auto !important;
+}
+
+.vfb-config-form-header-collapse-container {
+    display: flex;
+    align-items: center;
+    order: 2;
+
+    svg {
+        color: $gray-600;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.vfb-config-form-header-collapse-loading {
+    animation: spin 1s linear infinite;
+}
+
+.vfb-config-panel-input-language {
+    color: #9ca3af;
+    font-weight: 700;
+    font-size: 0.625rem;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5625rem;
+    padding-right: 0.375rem;
+    text-transform: uppercase;
+    order: 1;
+    cursor: text;
+    user-select: none;
+}
+
+.vfb-config-panel-input-language + input,
+.vfb-config-panel-input-language + textarea {
+    padding-right: 0.25rem;
+}
+
+.vfb-config-panel-input-language-editor {
+    color: #9ca3af;
+    font-weight: 700;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    cursor: text;
+    user-select: none;
+    background-color: rgba(243, 244, 246, 0.5);
+    position: absolute;
+    bottom: 0.375rem;
+    right: 0.5rem;
+    line-height: 1;
+    padding: 0.125rem;
+}
+
+.vfb-config-panel-warning {
+    background-color: #fee2e2;
+    color: #ef4444;
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    line-height: 1.25;
+    overflow-x: auto;
+}
+
+.vfb-config-panel-warning-text {
+    margin: 0.25rem 0;
+}
+
+.vfb-config-panel-warning-ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    line-height: 1.25;
+}
+
+.vfb-config-panel-warning-li {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: -0.25rem;
+    padding-right: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div[aria-labelledby="validation.validation_wrapper__label"] {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+div[aria-labelledby="data.items_wrapper__label"] {
+    > div:first-child {
+        display: none;
+    }
+}
+
+div[aria-labelledby="data.items_wrapper.list__label"] {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0;
+
+    > div > div > div > div > div > div {
+        display: flex;
+    }
+
+    > div {
+        position: relative;
+
+        // Close button
+        > div:last-child {
+            height: 20px;
+            width: 20px;
+            display: none;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: $gray-300;
+            border-radius: 50%;
+            padding-left: 4.5px;
+            padding-top: 4.5px;
+            cursor: pointer;
+
+            span {
+                display: block;
+                height: 11px;
+                width: 1px;
+                background: $gray-900;
+                transform: translateX(5px) rotate(45deg);
+
+                &:after {
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    width: 11px;
+                    background: $gray-900;
+                    transform: translate(-5px, 5px);
+                }
+            }
+        }
+
+        &:hover > div:last-child {
+            display: block;
+        }
+    }
+
+}
+
+.vfb-util-props-list-el-input {
+    > div {
+        order: 2;
+        padding: 0 12px;
+    }
+
+    svg {
+        color: $gray-900;
+    }
+}
+
+div[id="data.items_wrapper.list-add-button"] {
+    @include text-button;
+    background: $primary-600;
+}
+
+div[aria-label="simple_section_options"] + .vfb-util-props-group-container {
+    .vfb-util-props-separator {
+        border: none;
+        padding: 0;
+    }
+
+    label > span {
+        margin-bottom: 8px;
+    }
+}

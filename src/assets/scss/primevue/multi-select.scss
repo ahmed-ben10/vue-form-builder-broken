@@ -1,0 +1,44 @@
+@use "select" as *;
+
+@layer primevue {
+    .p-multiselect-label-container {
+        width: 100%;
+    }
+
+    .p-multiselect-label {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: fit-content;
+    }
+
+    .p-multiselect-chip {
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px $gray-300 solid;
+        border-radius: 12px;
+        padding: 2px 10px 2px 12px;
+
+        &-label {
+            font-size: 12px;
+        }
+
+        svg {
+            pointer-events: all !important;
+        }
+
+        svg:hover {
+            cursor: pointer;
+        }
+    }
+
+    .p-multiselect-header .p-checkbox {
+        display: none !important;
+    }
+
+    .p-multiselect-option {
+
+    }
+}

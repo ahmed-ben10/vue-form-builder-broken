@@ -1,0 +1,136 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.vfb-fields-container {
+    word-break: break-word;
+    width: max-content;
+    max-width: 576px;
+    max-height: 400px;
+}
+
+.vfb-field-container-no-nesting {
+    padding-left: 0.125rem;
+}
+
+.vfb-field-input {
+    z-index: 1;
+}
+
+.vfb-field-label {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    bottom: 0;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.vfb-field-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 12px;
+    line-height: 1;
+}
+
+.vfb-field-wrapper-root {
+    padding-top: 0.375rem;
+    padding-bottom: 0.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.vfb-field-wrapper-container {
+}
+
+.vfb-field-wrapper-disabled {
+    opacity: 0.5;
+}
+
+.vfb-field-spacing {
+    white-space: nowrap;
+}
+
+.vfb-field-selected {
+    &.vfb-field-pointed .vfb-field-icon,
+    &.vfb-field-pointed .vfb-field-chevron,
+    &.vfb-field-pointed .vfb-field-text,
+    &.vfb-field-pointed .vfb-field-text-secondary,
+    .vfb-field-icon,
+    .vfb-field-chevron,
+    .vfb-field-text,
+    .vfb-field-text-secondary {
+        color: $primary-600;
+    }
+}
+
+.vfb-field-icon-container {
+    position: relative;
+    background-color: transparent;
+    color: #6b7280;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 8px;
+}
+
+.vfb-field-icon {
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+    color: $primary-500;
+}
+
+.vfb-field-chevron-container {
+    position: relative;
+    background-color: transparent;
+    color: #000000;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 1px;
+    margin-left: -1.1875rem;
+}
+
+.vfb-field-chevron-container-sub {
+    position: relative;
+}
+
+.vfb-field-chevron {
+    font-size: 0.5rem;
+}
+
+.vfb-field-text {
+    justify-content: center;
+    @include text-primary;
+}
+
+.vfb-field-text-primary {
+    margin-bottom: 2px;
+    @include text-primary;
+}
+
+.vfb-field-text-secondary {
+    padding-bottom: 1px;
+    font-size: $font-size-small;
+    font-style: italic;
+    white-space: nowrap;
+    padding-right: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include text-secondary;
+}

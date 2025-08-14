@@ -1,0 +1,87 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: solid 1px $purple-300;
+    background-color: rgba(222, 204, 250, 0.6);
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    touch-action: none;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    overflow: hidden;
+
+    .hover,
+    .title {
+        text-align: center;
+        pointer-events: none;
+
+        @include mobile {
+            font-size: 2vw !important;
+        }
+    }
+
+    .hover {
+        display: none;
+    }
+
+    &.visible {
+        visibility: visible;
+    }
+
+    &[data-type|="input"] {
+        border-color: $green-300;
+        background-color: rgba(0, 209, 178, 0.15);
+
+        &.fillable {
+            &:hover {
+                border-color: $green-400;
+                background-color: rgba(0, 209, 178, 0.3);
+            }
+        }
+    }
+
+    &.fillable {
+        cursor: pointer;
+
+        &:hover {
+            border-color: $purple-400;
+            background-color: rgba(222, 204, 250, 0.9);
+
+            .title {
+                display: none;
+            }
+
+            .hover {
+                display: inline;
+            }
+        }
+    }
+
+    &.filled {
+        border-color: transparent;
+        background-color: transparent;
+
+        .title {
+            display: none;
+        }
+
+        .stamp-signature {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        padding: 0;
+    }
+}

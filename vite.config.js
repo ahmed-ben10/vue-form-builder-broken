@@ -6,8 +6,8 @@ import builder from '@vueform/builder/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        vue(),
-        builder(),
-    ]
+  plugins: [
+    vue(),
+    builder(),
+  ]
 })

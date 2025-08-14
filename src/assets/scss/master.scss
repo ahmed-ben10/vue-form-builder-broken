@@ -1,0 +1,11 @@
+@use "grid" as *;
+@use "layout" as *;
+@use "primevue" as *;
+@use "typography" as *;
+@use "variables" as *;
+@use "page-placeholders" as *;
+@import "vue-draggable-resizable/style.css";
+
+.unselectable {
+    user-select: none
+}
